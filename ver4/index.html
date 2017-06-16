@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First game</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
+</head>
+<style>
+	* {
+		margin:0;
+		padding: 0;
+	}
+	html,body {
+		background: #fff;
+		height: 100%;
+		overflow: hidden;
+		font-family: helvetica;
+	}
+	canvas {
+		background: #fff;
+		float: left;
+	}
+	h3 	{
+		color: #fff;
+	}
+	.highscores {
+		float: left;
+		height: 500px;
+		width: 300px;
+		color: lime;
+		background: black;
+		border-left: 1px dashed white;
+	}
+	.new-highscore {
+		height: 300px;
+		width: 300px;
+		background: rgb(50, 136, 136);
+		float: left;
+		position: absolute;
+		left: calc(750px - 150px);
+		top: 100px;
+	 	padding: 10px;
+	 	z-index: 3;
+	 	display: none;
+	}
+	.mask {
+		width:100%;
+		height: 100%;
+		background:black;
+		opacity: 0.7;
+		position:absolute;
+		z-index: 2;	
+		display: none;
+	}
+	.send {
+		width: 100px;
+		height: 40px;
+		color: black;
+		background: #fff;
+		margin-top: 20px;
+		text-align: center;
+		line-height: 40px;
+		cursor: pointer;
+	}
+	#current-score {
+		margin-bottom: 10px;
+	}
+	input {
+		margin-top: 10px;
+		font-size: 20px;
+	}
+	li {
+		font-size: 18px;
+		  width: 70%;
+		  line-height: 33px;
+		  margin-top: 5px;
+		  border-bottom: 1px solid rgb(89, 89, 89);
+		  color: white;
+	}
+	h2 {
+		padding: 12px;
+	}
+	ol {
+		padding-left: 50px;
+	}
+</style>
+<body>
+<canvas id="context" width="1000" height="500"></canvas>
+<div class="highscores">
+	<h2>HIGHSCORES</h2>
+	<ol class="imena"></ol>
+</div>
+<div class="new-highscore">
+	<div id="current-score">Congratulations your score</div>
+	<div>Your name</div>
+	<input type="text" id="name">	
+	<div class="send" onclick="printScore()">SEND</div>
+</div>
+<script src="main.js"></script>
+<script src="highscores.js"></script>
+</body>
+</html> 
