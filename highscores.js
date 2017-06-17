@@ -7,20 +7,26 @@ function printScore(){
     if ($("#name").val().trim().length > 1 && $("#name").val()!= '' ){
         $(".new-highscore").hide();
         highscore_screen = false;
-        resetScores();
         $(".mask").hide();
         $.ajax({
-        	url: "highscore.php",
-        	type: "POST",
-        	data: {
-        		name : $("#name").val(),
-        		score : score
-        		// comment : comment
-        	}, 
-        	success: function(result){
-            highscore = result;
-            printNames(); 
-        }});
+            url: "highscore.php",
+            type: "POST",
+            data: {
+                name : $("#name").val(),
+                score : score
+                // comment : comment
+            }, 
+            success: function(result){
+                highscore = result;
+                printNames(); 
+                console.log("sending score: " + score);
+                resetScores();
+            },
+            error: function(result){
+                console.log("Can't send score");
+                console.log("Result: "+ result);
+            }
+        });
     } else {
         $("#current-score").html(message[message_no]);
         message_no++;
@@ -34,20 +40,24 @@ function printNames(){
     $.ajax({
         url: "highscore.php",
         success: function(result){
-        highscore = result;  
-        var parsed_score = JSON.parse(highscore);
-        for (i in parsed_score){
-            var ime = parsed_score[i][1];
-            var skor = parsed_score[i][2];
-            console.log(ime);
-            console.log(skor);
-            current_html += "<li>" + ime + " : " + skor+"</li>";
-            $(".imena").html(current_html);
-            console.log(current_html);
+            highscore = result;  
+            var parsed_score = JSON.parse(highscore);
+            for (i in parsed_score){
+                var ime = parsed_score[i][1];
+                var skor = parsed_score[i][2];
+                console.log(ime);
+                console.log(skor);
+                current_html += "<li>" + ime + " : " + skor+"</li>";
+                $(".imena").html(current_html);
+                console.log(current_html);
 
+            }
+        },
+        error:function(result){
+            console.log("Can't print names");
+            console.log("result: " + result);
         }
-             
-    }});
+    });
 	
 }
 function showNewHighscore(){
