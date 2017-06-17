@@ -10,7 +10,7 @@ if (isset($_REQUEST['score'])){
 $servername = "localhost";
 $username = "root";
 $password = "winstonblue";
-$password = "";
+// $password = "";
 
 $sql2;
 // Create connection
