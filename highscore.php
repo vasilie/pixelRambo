@@ -3,11 +3,11 @@
 $score = $_REQUEST['score'];
 $name = $_REQUEST['name'];
 $comment = $_REQUEST['comment'];
-$db = mysql_connect('localhost', 'zoharica', 'winstonblue',zoharica_app) or die('Could not connect');
+$db = mysql_connect('localhost', 'root', 'winstonblue',zoharica) or die('Could not connect');
 // select the db name
-mysql_select_db(zoharica_app, $db);
+mysql_select_db(zoharica, $db);
 if(isset($score)){
-	$sql2 = "INSERT INTO `zoharica_app`.`highscore` (`id`, `name`, `score`, `comment`) VALUES (NULL, '$name', '$score', '$comment')";
+	$sql2 = "INSERT INTO `zoharica`.`pixelRamboHighscore` (`id`, `name`, `score`, `comment`) VALUES (NULL, '$name', '$score', '$comment')";
 }
 // enter your sql query
 mysql_query($sql2);
