@@ -18,11 +18,11 @@ $db = new mysqli($servername, $username, $password) or die("cant connect");
 // select the db name
  mysqli_select_db( $db, "pixelrambo");
 if(isset($score)){
-	$sql2 = "INSERT INTO `pixelrambo`.`pixelRamboHighscore` (`id`, `name`, `score`, `comment`) VALUES (NULL, '$name', '$score', '$comment')";
+	$sql2 = "INSERT INTO `pixelrambo`.`pixelrambohighscore` (`id`, `name`, `score`, `comment`) VALUES (NULL, '$name', '$score', '$comment')";
 	mysqli_query($db, $sql2);
 }
 // enter your sql query
-$sql = "SELECT * FROM pixelRamboHighscore WHERE score > 0 ORDER BY score desc LIMIT 10";
+$sql = "SELECT * FROM pixelrambohighscore WHERE score > 0 ORDER BY score desc LIMIT 10";
 // Creates temp array variable
 $temp = array();
 // Gets table details
