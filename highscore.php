@@ -10,15 +10,15 @@ if (isset($_REQUEST['score'])){
 $servername = "localhost";
 $username = "root";
 $password = "winstonblue";
-// $password = "";
+$password = "";
 
 $sql2;
 // Create connection
 $db = new mysqli($servername, $username, $password) or die("cant connect");
 // select the db name
- mysqli_select_db( $db, "zoharica");
+ mysqli_select_db( $db, "pixelrambo");
 if(isset($score)){
-	$sql2 = "INSERT INTO `zoharica`.`pixelRamboHighscore` (`id`, `name`, `score`, `comment`) VALUES (NULL, '$name', '$score', '$comment')";
+	$sql2 = "INSERT INTO `pixelrambo`.`pixelRamboHighscore` (`id`, `name`, `score`, `comment`) VALUES (NULL, '$name', '$score', '$comment')";
 	mysqli_query($db, $sql2);
 }
 // enter your sql query
